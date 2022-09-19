@@ -15,6 +15,7 @@ jobs:
     - name: build and push to docker
       uses: docker/build-push-action@v3
       with:
+        context: .
         load: true
         tags: user/devtest
 
