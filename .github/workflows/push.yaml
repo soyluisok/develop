@@ -15,6 +15,6 @@ jobs:
     - name: build and push to docker
       uses: docker/build-push-action@v3
       with:
-        push: true
+        load: true
         tags: user/app:latest
 
