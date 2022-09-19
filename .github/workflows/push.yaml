@@ -16,5 +16,5 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         load: true
-        tags: user/app:latest
+        tags: user/devtest
 
