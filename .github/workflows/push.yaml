@@ -39,17 +39,19 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-      -
-        name: deploy to cluster
-        uses: steebchen/kubectl@master
-        env: 
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: set image --record deployment/my-app container=devtest:latest
-      - 
-        name: verify deployment
-        uses: steebchen/kubectl@v2.0.0
-        with:
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          version: v1.25.0 # specify kubectl binary version explicitly 
-          command: rollout status deployment/my-app             
+          script: |
+            docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
+#      -
+#        name: deploy to cluster
+#        uses: steebchen/kubectl@master
+#        env: 
+#          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+#          command: set image --record deployment/my-app container=devtest:latest
+#      - 
+#        name: verify deployment
+#        uses: steebchen/kubectl@v2.0.0
+#        with:
+#          config: ${{ secrets.KUBE_CONFIG_DATA }}
+#          version: v1.25.0 # specify kubectl binary version explicitly 
+#          command: rollout status deployment/my-app             
 
