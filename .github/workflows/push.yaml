@@ -33,7 +33,7 @@ jobs:
           tags: luiscari/devtest:latest
       -      
         name: copy file via ssh key
-        uses: appleboy/scp-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
