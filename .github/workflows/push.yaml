@@ -30,20 +30,17 @@ jobs:
         with:
           context: .
           push: true
-          tags: luiscari/devtest:latest
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:  
-      name: copy file via ssh key
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        port: ${{ secrets.PORT }}
-        key: ${{ secrets.KEY }}
-        script: |
-          docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
+          tags: luiscari/devtest:latest2
+      -      
+        name: copy file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.KEY }}
+          script: |
+            docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
 #      -
 #        name: deploy to cluster
 #        uses: steebchen/kubectl@master
