@@ -42,8 +42,7 @@ jobs:
 #         source: "."
 #         target: "/home/ec2-user"
           script: |
-            whoami
-#           docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
+            docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
 #      -
 #        name: deploy to cluster
 #        uses: steebchen/kubectl@master
