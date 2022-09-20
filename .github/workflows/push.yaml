@@ -39,8 +39,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          source: "."
-          target: "/home/ec2-user"
+#         source: "."
+#         target: "/home/ec2-user"
           script: |
             whoami
 #           docker run --name server -p 80:80 -d ${{ secrets.DOCKER_USERNAME }}:devtest
